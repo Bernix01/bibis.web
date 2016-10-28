@@ -27,7 +27,7 @@ Public Class ApplicationDbContext
     Public Sub New()
         MyBase.New("DefaultConnection", throwIfV1Schema:=False)
     End Sub
-    
+
     Public Shared Function Create As ApplicationDbContext
         Return New ApplicationDbContext()
     End Function    
