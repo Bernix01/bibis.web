@@ -11,5 +11,5 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class _Default2
+Partial Public Class Arqueo
 End Class

@@ -209,6 +209,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Credito.aspx" />
+    <Content Include="Arqueo.aspx" />
+    <Content Include="Facturacion.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -383,6 +386,27 @@
     <Compile Include="Contact.aspx.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Credito.aspx.designer.vb">
+      <DependentUpon>Credito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Credito.aspx.vb">
+      <DependentUpon>Credito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Arqueo.aspx.designer.vb">
+      <DependentUpon>Arqueo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Arqueo.aspx.vb">
+      <DependentUpon>Arqueo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturacion.aspx.designer.vb">
+      <DependentUpon>Facturacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion.aspx.vb">
+      <DependentUpon>Facturacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
