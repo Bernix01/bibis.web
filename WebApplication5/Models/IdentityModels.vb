@@ -10,6 +10,9 @@ Imports Microsoft.Owin.Security
 Public Class ApplicationUser
     Inherits IdentityUser
 
+    Public Telf As String
+    Public RUC As String
+
     Public Function GenerateUserIdentity(manager As ApplicationUserManager) As ClaimsIdentity
         ' Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
         Dim userIdentity = manager.CreateIdentity(Me, DefaultAuthenticationTypes.ApplicationCookie)
@@ -28,9 +31,10 @@ Public Class ApplicationDbContext
         MyBase.New("DefaultConnection", throwIfV1Schema:=False)
     End Sub
 
-    Public Shared Function Create As ApplicationDbContext
+    Public Shared Function Create() As ApplicationDbContext
         Return New ApplicationDbContext()
-    End Function    
+    End Function
+
 End Class
 
 #Region "Helpers"

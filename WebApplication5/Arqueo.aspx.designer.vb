@@ -12,4 +12,535 @@ Option Explicit On
 
 
 Partial Public Class Arqueo
+    
+    '''<summary>
+    '''Image1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Image1 As Global.System.Web.UI.WebControls.Image
+    
+    '''<summary>
+    '''bnt_nuevo_arqueo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bnt_nuevo_arqueo As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''bnt_modificar_arqueo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bnt_modificar_arqueo As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''bnt_generar_arqueo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bnt_generar_arqueo As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''ImageButton9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ImageButton9 As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''lbl_reporte control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_reporte As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_reporte control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_reporte As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''bnt_buscar_arqueo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bnt_buscar_arqueo As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''Panel2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Panel2 As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''lbl_local control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_local As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddl_local control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddl_local As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''lbl_aprobadas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_aprobadas As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_aprobadas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_aprobadas As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lbl_administrador control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_administrador As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddl_administrador control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddl_administrador As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''lbl_anuladas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_anuladas As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_anuladas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_anuladas As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lbl_fecha control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_fecha As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_fecha control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_fecha As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Panel3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Panel3 As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''lbl_vendedor control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_vendedor As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddl_vendedor control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddl_vendedor As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''lbl_total_ventas_vendedores control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_total_ventas_vendedores As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_total_ventas_vendedores control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_total_ventas_vendedores As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''btn_agregar_vendedor control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_agregar_vendedor As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''GridView1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''lbl_consumo_interno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_consumo_interno As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_consumo_interno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_consumo_interno As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lbl_total_vendedores control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_total_vendedores As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_vendedores control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_vendedores As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lbl_credito_empleado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_credito_empleado As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_credito_empleado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_credito_empleado As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lbl_total_caja_Vendedores control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_total_caja_Vendedores As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_total_caja_vendedores control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_total_caja_vendedores As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Panel4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Panel4 As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''lbl_denominacion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_denominacion As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddl_denominacion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddl_denominacion As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''lbl_cantidad control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_cantidad As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_cantidad control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_cantidad As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lbl_total_denominacion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_total_denominacion As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_total_denominacion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_total_denominacion As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''bnt_añadir_efectivo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bnt_añadir_efectivo As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''GridView2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView2 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''lbl_total_efectivo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_total_efectivo As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_total_efectivo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_total_efectivo As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Panel5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Panel5 As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''lbl_nombre_tarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_nombre_tarjeta As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddl_nombre_tarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddl_nombre_tarjeta As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''lbl_numero_factura control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_numero_factura As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_numero_factura control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_numero_factura As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lbl_valor_credito control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_valor_credito As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_valor_credito control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_valor_credito As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''btn_añadir_credito control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_añadir_credito As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''GridView3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView3 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''lbl_total_credito control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_total_credito As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_total_credito control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_total_credito As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Panel6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Panel6 As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''lbl_total_arqueo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_total_arqueo As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_total_arqueo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_total_arqueo As Global.System.Web.UI.WebControls.TextBox
 End Class
