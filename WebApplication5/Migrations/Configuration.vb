@@ -2,7 +2,6 @@ Imports System
 Imports System.Data.Entity
 Imports System.Data.Entity.Migrations
 Imports System.Linq
-Imports MySql.Data.Entity
 
 Namespace Migrations
 
@@ -11,7 +10,7 @@ Namespace Migrations
 
         Public Sub New()
             AutomaticMigrationsEnabled = True
-            SetSqlGenerator("MySql.Data.MySqlClient", New MySqlMigrationSqlGenerator())
+            SetSqlGenerator("MySql.Data.MySqlClient", New MySql.Data.Entity.MySqlMigrationSqlGenerator())
         End Sub
 
         Protected Overrides Sub Seed(context As ApplicationDbContext)

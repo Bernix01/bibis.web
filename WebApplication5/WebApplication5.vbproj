@@ -229,7 +229,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-    <None Include="My Project\PublishProfiles\WebApplication520161025110114 - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\bibis - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\GRABAR.gif" />
     <Content Include="images\GUARDARR.png" />
@@ -436,8 +436,20 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610300003119_USERCEDULA.Designer.vb">
+      <DependentUpon>201610300003119_USERCEDULA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610300003119_USERCEDULA.vb" />
+    <Compile Include="Migrations\201610300008000_USERCEDULA2.Designer.vb">
+      <DependentUpon>201610300008000_USERCEDULA2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610300008000_USERCEDULA2.vb" />
     <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="Models\Ciudad.vb" />
+    <Compile Include="Models\Cliente.vb" />
+    <Compile Include="Models\FacturaDbContext.vb" />
     <Compile Include="Models\IdentityModels.vb" />
+    <Compile Include="Models\Item.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -481,6 +493,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610300003119_USERCEDULA.resx">
+      <DependentUpon>201610300003119_USERCEDULA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610300008000_USERCEDULA2.resx">
+      <DependentUpon>201610300008000_USERCEDULA2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

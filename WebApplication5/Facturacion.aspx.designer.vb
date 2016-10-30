@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Facturacion
     
     '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Image2 control.
     '''</summary>
     '''<remarks>
@@ -239,15 +248,6 @@ Partial Public Class Facturacion
     Protected WithEvents lbl_fecha_emisionn As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''txt_fecha_emision control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_fecha_emision As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
     '''lbl_fecha_vencimiento control.
     '''</summary>
     '''<remarks>
@@ -255,15 +255,6 @@ Partial Public Class Facturacion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lbl_fecha_vencimiento As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''txt_fecha_vencimiento control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_fecha_vencimiento As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''lbl_forma_pago control.
@@ -293,24 +284,6 @@ Partial Public Class Facturacion
     Protected WithEvents lbl_cedula_vendedor As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''txt_cedula_vendedor control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_cedula_vendedor As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''btn_buscar_vendedor control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btn_buscar_vendedor As Global.System.Web.UI.WebControls.ImageButton
-    
-    '''<summary>
     '''lbl_vendedor control.
     '''</summary>
     '''<remarks>
@@ -318,15 +291,6 @@ Partial Public Class Facturacion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lbl_vendedor As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''txt_vendedor control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_vendedor As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Panel2 control.
@@ -392,58 +356,13 @@ Partial Public Class Facturacion
     Protected WithEvents lbl_total As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''txt_codigo_producto control.
+    '''ItemList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_codigo_producto As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''txt_descripcion control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_descripcion As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''txt_cantidad control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_cantidad As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''txt_precio_unitario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_precio_unitario As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''txt_descuento control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_descuento As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''txt_total control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_total As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ItemList As Global.System.Web.UI.WebControls.Repeater
     
     '''<summary>
     '''btn_agregar_detalle control.

@@ -13,7 +13,7 @@ Partial Public Class Register
         Dim userName As String = Email.Text
         Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
         Dim signInManager = Context.GetOwinContext().Get(Of ApplicationSignInManager)()
-        Dim user = New ApplicationUser() With {.UserName = userName, .Email = userName}
+        Dim user = New ApplicationUser() With {.UserName = userName, .Email = userName, .CEDULA = Cedula.Text}
         Dim result = manager.Create(user, Password.Text)
         If result.Succeeded Then
             ' For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

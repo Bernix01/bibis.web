@@ -39,6 +39,14 @@
             </div>
         </div>
         <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="Cedula" CssClass="col-md-2 control-label">Cédula</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="Cedula" TextMode="SingleLine" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="CEDULA"
+                    CssClass="text-danger" Display="Dynamic" ErrorMessage="La Cédula es requerida." />
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
             </div>

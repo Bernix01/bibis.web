@@ -5,26 +5,37 @@ Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.EntityFramework
 Imports Microsoft.AspNet.Identity.Owin
 Imports Microsoft.Owin.Security
+Imports System.Runtime.CompilerServices
 
 ' You can add profile data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
 Public Class ApplicationUser
     Inherits IdentityUser
 
-    Public Telf As String
-    Public RUC As String
+    ' La Cédula del usuario (vendedor)
+    Public Property Cedula() As String
+        Get
+            Return m_cedula
+        End Get
+        Set
+            m_cedula = Value
+        End Set
+    End Property
+    Private m_cedula As String
 
     Public Function GenerateUserIdentity(manager As ApplicationUserManager) As ClaimsIdentity
         ' Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
         Dim userIdentity = manager.CreateIdentity(Me, DefaultAuthenticationTypes.ApplicationCookie)
         ' Add custom user claims here
+        Dim cl = New Claim("CEDULA", Me.Cedula)
+        userIdentity.AddClaim(cl) ' Agrego el RUC del usuario a las propiedades de identidad.
         Return userIdentity
     End Function
 
     Public Function GenerateUserIdentityAsync(manager As ApplicationUserManager) As Task(Of ClaimsIdentity)
         Return Task.FromResult(GenerateUserIdentity(manager))
     End Function
-End Class
 
+End Class
 Public Class ApplicationDbContext
     Inherits IdentityDbContext(Of ApplicationUser)
     Public Sub New()
