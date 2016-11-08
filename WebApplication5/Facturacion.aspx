@@ -81,7 +81,7 @@
                                         </td>
                                         <td>
                                             <asp:ImageButton ID="btn_buscar_factura" runat="server"
-                                                ImageUrl="C:\Users\usuario\Desktop\ali factura\bibis\imagenes\BUSCAR.gif" />
+                                                ImageUrl="~/images/BUSCAR.gif" />
                                             <span class="style6">
                                                 <br />
                                                 BUSCAR</span></td>
@@ -259,28 +259,29 @@
                                                                 <asp:Label ID="lbl_total" runat="server" Text="TOTAL"></asp:Label>
                                                             </td>
                                                         </tr>
-                                                        <asp:Repeater ID="ItemList" runat="server">
+                                                        <asp:Repeater ID="ItemList" OnItemCommand ="ItaCommand" runat="server">
                                                             <HeaderTemplate>
                                                                
                                                             </HeaderTemplate>
                                                             <ItemTemplate>
                                                                  <tr><td>
-                                                                    <asp:TextBox ID="txt_codigo_producto" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="txt_codigo_producto" TextMode="SingleLine" Enabled='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>' runat="server" Text='<%# IF(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, DataBinder.Eval(Container.DataItem, "Iditem"), "") %>'></asp:TextBox>
                                                                 </td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txt_descripcion" runat="server"></asp:TextBox>
+                                                                    <asp:Label ID="txt_descripcion" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "nombre") %>'></asp:Label>
                                                                 </td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txt_cantidad" runat="server"></asp:TextBox>
+                                                                    <asp:Textbox ID="txt_cantidad" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "cantidad") %>' Enabled='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>'></asp:Textbox>
                                                                 </td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txt_precio_unitario" runat="server"></asp:TextBox>
+                                                                    <asp:Label ID="txt_precio_unitario" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "precio")%>'></asp:Label>
                                                                 </td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txt_descuento" runat="server" CssClass="style10" Width="61px"></asp:TextBox>
+                                                                    <asp:TextBox ID="txt_descuento" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "descuento")%>' CssClass="style10" Width="61px"></asp:TextBox>
                                                                     %</td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txt_total" runat="server"></asp:TextBox>
+                                                                    <asp:Button ID="btn_consultar" CommandName="search" runat="server" Visible='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>' Text="Consultar" />
+                                                                    <asp:Label ID="txt_total" runat="server" Text='<%# (DataBinder.Eval(Container.DataItem, "cantidad") * DataBinder.Eval(Container.DataItem, "precio")) * (1 - (DataBinder.Eval(Container.DataItem, "descuento") / 100))%>' Visible='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, True, False)  %>' ></asp:Label>
                                                                 </td>
  </tr>
                                                             </ItemTemplate>
@@ -318,14 +319,6 @@
                 </tr>
         <tr>
             <td>
-                <asp:GridView ID="GridView1" runat="server" CssClass="style9"
-                    EnableModelValidation="True" Width="795px">
-                    <Columns>
-                        <asp:CheckBoxField />
-                        <asp:CheckBoxField />
-                        <asp:CheckBoxField />
-                    </Columns>
-                </asp:GridView>
             </td>
         </tr>
         </table>
@@ -345,13 +338,13 @@
                                                     <asp:Label ID="lbl_subtotal_factura" runat="server" Text="SUBTOTAL"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txt_subtotal_factura" runat="server"></asp:TextBox>
+                                                    <asp:Label ID="txt_subtotal_factura" runat="server"></asp:Label>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lbl_iva_factura" runat="server" Text="IVA"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txt_iva_factura" runat="server"></asp:TextBox>
+                                                    <asp:Label ID="txt_iva_factura" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -359,13 +352,13 @@
                                                     <asp:Label ID="lbl_descuento_factura" runat="server" Text="DESCUENTO"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txt_descuento_factura" runat="server"></asp:TextBox>
+                                                    <asp:Label ID="txt_descuento_factura" runat="server"></asp:Label>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lbl_ice_factura" runat="server" Text="ICE"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txt_ice_factura" runat="server"></asp:TextBox>
+                                                    <asp:Label ID="txt_ice_factura" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -375,7 +368,7 @@
                                                         Text="TOTAL"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txt_total_factura" runat="server"></asp:TextBox>
+                                                    <asp:Label ID="txt_total_factura" runat="server"></asp:Label>
                                                 </td>
                                                 <td>&nbsp;</td>
                                             </tr>
@@ -396,7 +389,7 @@
                                                     <asp:Label ID="lbl_cambio_factura" runat="server" Text="CAMBIO"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txt_cambio_factura" runat="server"></asp:TextBox>
+                                                    <asp:Label ID="txt_cambio_factura" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                         </table>

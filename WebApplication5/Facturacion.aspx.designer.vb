@@ -383,15 +383,6 @@ Partial Public Class Facturacion
     Protected WithEvents btn_limpiar_detalle As Global.System.Web.UI.WebControls.ImageButton
     
     '''<summary>
-    '''GridView1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
-    
-    '''<summary>
     '''Panel3 control.
     '''</summary>
     '''<remarks>
@@ -416,7 +407,7 @@ Partial Public Class Facturacion
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_subtotal_factura As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txt_subtotal_factura As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''lbl_iva_factura control.
@@ -434,7 +425,7 @@ Partial Public Class Facturacion
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_iva_factura As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txt_iva_factura As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''lbl_descuento_factura control.
@@ -452,7 +443,7 @@ Partial Public Class Facturacion
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_descuento_factura As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txt_descuento_factura As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''lbl_ice_factura control.
@@ -470,7 +461,7 @@ Partial Public Class Facturacion
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_ice_factura As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txt_ice_factura As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''lbl_total_factura control.
@@ -488,7 +479,7 @@ Partial Public Class Facturacion
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_total_factura As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txt_total_factura As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''lbl_efectivo_factura control.
@@ -524,5 +515,5 @@ Partial Public Class Facturacion
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_cambio_factura As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txt_cambio_factura As Global.System.Web.UI.WebControls.Label
 End Class
