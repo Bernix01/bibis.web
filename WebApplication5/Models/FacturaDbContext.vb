@@ -24,13 +24,13 @@ Public Class FacturaDbContext
 
     Public Function SaveCliente(nombre As String, apellido As String, direccion As String, email As String, ruc As String, telef As String, ciud As String)
         Try
-            Dim asd = Me.Database.SqlQuery(Of Int16)("grabarCliente(@nombre,@apellido,@email,@direccion,@ruc,@telefono,@ciudad)", New MySqlParameter("nombre", nombre), New MySqlParameter("apellido", apellido), New MySqlParameter("direccion", direccion), New MySqlParameter("email", email), New MySqlParameter("ruc", ruc), New MySqlParameter("telefono", telef), New MySqlParameter("ciudad", ciud)).ToArray()
+            Dim asd = Me.Database.SqlQuery(Of Int16)("grabarCliente(@nombre,@apellido,@telefono,@ruc,@direccion,@ciudad,@email)", New MySqlParameter("nombre", nombre), New MySqlParameter("apellido", apellido), New MySqlParameter("direccion", direccion), New MySqlParameter("email", email), New MySqlParameter("ruc", ruc), New MySqlParameter("telefono", telef), New MySqlParameter("ciudad", ciud)).ToArray()
 
             Return asd
         Catch e As MySqlException
             e.ToString()
         End Try
-
+        Return 0
     End Function
 
 End Class

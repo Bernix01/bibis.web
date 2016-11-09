@@ -50,6 +50,10 @@ Public Class Facturacion
     End Function
 
     Private Sub btn_buscar_cliente_Click(sender As Object, e As ImageClickEventArgs) Handles btn_buscar_cliente.Click
+        buscarcliente()
+    End Sub
+
+    Private Sub buscarcliente()
         Dim clientes = fdbc.GetCliente(txt_ruc.Text)
         If (clientes.Length = 0) Then
             Return
@@ -115,9 +119,8 @@ Public Class Facturacion
         If (Not (IsValid)) Then
             Return
         End If
-        Dim id As String = fdbc.SaveCliente(txt_cliente.Text, "", txt_direccion.Text, txt_correo.Text, txt_ruc.Text, txt_telefono.Text, txt_ciudad.Text)
-        Dim c As Cliente = fdbc.GetCliente(id.ToString)(0)
-
+        Dim id As String = fdbc.SaveCliente(txt_cliente.Text, "", txt_direccion.Text, txt_correo.Text, txt_ruc.Text, txt_telefono.Text, txt_ciudad.Text).ToString()
+        buscarcliente()
 
     End Sub
 End Class
