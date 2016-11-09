@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Facturacion.aspx.vb" Inherits="WebApplication5.Facturacion" %>
+
 <%@ Import Namespace="WebApplication5" %>
 <%@ Import Namespace="Microsoft.AspNet.Identity" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <div>
         <table class="style4">
             <tr>
@@ -76,15 +76,20 @@
                                             <asp:Label ID="lbl_numero_factura" runat="server" Text="FACTURA N°"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txt_numero_factura" runat="server" CssClass="style5"
-                                                Width="94px"></asp:TextBox>
+                                            <asp:Label ID="lbl_num_factura" runat="server" Text=""></asp:Label>
                                         </td>
+                                        <td>
+                                            <asp:TextBox ID="txt_numero_factura" runat="server" CssClass="style5"
+                                                Width="94px"></asp:TextBox></td>
+
                                         <td>
                                             <asp:ImageButton ID="btn_buscar_factura" runat="server"
                                                 ImageUrl="~/images/BUSCAR.gif" />
                                             <span class="style6">
                                                 <br />
                                                 BUSCAR</span></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                 </table>
                             </td>
@@ -108,7 +113,7 @@
                                                 <table class="style4">
                                                     <tr>
                                                         <td>
-                                                            <asp:TextBox ID="txt_ruc" runat="server"></asp:TextBox>
+                                                            <asp:TextBox ID="txt_ruc" CssClass="form-control" runat="server"></asp:TextBox>
                                                         </td>
                                                         <td>
                                                             <asp:ImageButton ID="btn_buscar_cliente" runat="server"
@@ -129,7 +134,8 @@
                                                 <asp:Label ID="lbl_cliente" runat="server" Text="CLIENTE"></asp:Label>
                                             </td>
                                             <td class="style7">
-                                                <asp:TextBox ID="txt_cliente" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_cliente" CssClass="form-control" runat="server"></asp:TextBox>
+                                                <asp:RegularExpressionValidator runat="server" ControlToValidate="txt_cliente" CssClass="text-danger" ValidationExpression="^(\w+ ){3}(\w+)" ErrorMessage="Nombre completo es requerido." ></asp:RegularExpressionValidator>
                                             </td>
                                         </tr>
                                         <tr>
@@ -137,7 +143,7 @@
                                                 <asp:Label ID="lbl_direccion" runat="server" Text="DIRECCION"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txt_direccion" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_direccion" CssClass="form-control" runat="server"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -145,7 +151,7 @@
                                                 <asp:Label ID="lbl_ciudad" runat="server" Text="CIUDAD"></asp:Label>
                                             </td>
                                             <td class="style17">
-                                                <asp:TextBox ID="txt_ciudad" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_ciudad" CssClass="form-control" runat="server"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -153,7 +159,7 @@
                                                 <asp:Label ID="lbl_telefono" runat="server" Text="TELEFONO"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txt_telefono" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_telefono" CssClass="form-control" runat="server"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -161,7 +167,7 @@
                                                 <asp:Label ID="lbl_correo" runat="server" Text="CORREO"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txt_correo" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_correo" CssClass="form-control" runat="server"></asp:TextBox>
                                             </td>
                                         </tr>
                                     </table>
@@ -177,16 +183,17 @@
                                                 <asp:Label ID="lbl_fecha_emisionn" runat="server" Text="FECHA DE EMISION"></asp:Label>
                                             </td>
                                             <td>
-                                                <%: String.Format("{0:dd/MM/yyyy}", DateTime.Now) %>
+
+                                                <asp:Label ID="lbl_emision" runat="server" Text=""></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <asp:Label ID="lbl_fecha_vencimiento" runat="server"
-                                                    Text="FECHA DE VENCIMIENTO"></asp:Label>
+                                                    Text="FECHA VENCIMIENTO"></asp:Label>
                                             </td>
                                             <td>
-                                                <%: String.Format("{0:dd/MM/yyyy}", DateTime.Now.AddDays(5)) %>
+                                                <asp:Label ID="lbl_vencimiento" runat="server" Text=""></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
@@ -219,189 +226,190 @@
                                             </td>
                                             <td>
                                                 <%: Context.User.Identity.Name  %></td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                         </table>
+                    </asp:Panel>
                 </td>
             </tr>
-        </table>
-        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Panel ID="Panel2" runat="server" GroupingText="DETALLE"
-                            ForeColor="#000066">
-                            <table class="style4">
-                                <tr>
-                                    <td>
-                                        <table class="style4">
-                                            <tr>
-                                                <td>
-                                                    <table class="style4">
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Label ID="lbl_codigo_producto" runat="server" Text="CODIGO DE PRODUCTO"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lbl_descripcion" runat="server" Text="DESCRIPCION"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lbl_cantidad" runat="server" Text="CANTIDAD"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lbl_precio_unitario" runat="server" Text="PRECIO UNITARIO"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lbl_descuento" runat="server" Text="DESCUENTO"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label ID="lbl_total" runat="server" Text="TOTAL"></asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                        <asp:Repeater ID="ItemList" OnItemCommand ="ItaCommand" runat="server">
-                                                            <HeaderTemplate>
-                                                               
-                                                            </HeaderTemplate>
-                                                            <ItemTemplate>
-                                                                 <tr><td>
-                                                                    <asp:TextBox ID="txt_codigo_producto" TextMode="SingleLine" Enabled='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>' runat="server" Text='<%# IF(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, DataBinder.Eval(Container.DataItem, "Iditem"), "") %>'></asp:TextBox>
+
+
+            <tr>
+                <td>
+                    <asp:Panel ID="Panel2" runat="server" GroupingText="DETALLE"
+                        ForeColor="#000066">
+                        <table class="style4">
+                            <tr>
+                                <td>
+                                    <table class="style4">
+                                        <tr>
+                                            <td>
+                                                <table class="style4">
+                                                    <tr>
+                                                        <td>
+                                                            <asp:Label ID="lbl_codigo_producto" runat="server" Text="CODIGO DE PRODUCTO"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_descripcion" runat="server" Text="DESCRIPCION"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_cantidad" runat="server" Text="CANTIDAD"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_precio_unitario" runat="server" Text="PRECIO UNITARIO"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_descuento" runat="server" Text="DESCUENTO"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_total" runat="server" Text="TOTAL"></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <asp:Repeater ID="ItemList" OnItemCommand="ItaCommand" runat="server">
+                                                        <HeaderTemplate>
+                                                        </HeaderTemplate>
+                                                        <ItemTemplate>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:TextBox ID="txt_codigo_producto" CssClass="form-control" TextMode="SingleLine" Enabled='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>' runat="server" Text='<%# IF(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, DataBinder.Eval(Container.DataItem, "Iditem"), "") %>'></asp:TextBox>
                                                                 </td>
                                                                 <td>
                                                                     <asp:Label ID="txt_descripcion" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "nombre") %>'></asp:Label>
                                                                 </td>
                                                                 <td>
-                                                                    <asp:Textbox ID="txt_cantidad" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "cantidad") %>' Enabled='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>'></asp:Textbox>
+                                                                    <asp:TextBox ID="txt_cantidad" CssClass="form-control" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "cantidad") %>' Enabled='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>'></asp:TextBox>
                                                                 </td>
                                                                 <td>
                                                                     <asp:Label ID="txt_precio_unitario" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "precio")%>'></asp:Label>
                                                                 </td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txt_descuento" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "descuento")%>' CssClass="style10" Width="61px"></asp:TextBox>
+                                                                    <asp:TextBox ID="txt_descuento" CssClass="form-control style10" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "descuento")%>' Width="51px"></asp:TextBox>
                                                                     %</td>
                                                                 <td>
                                                                     <asp:Button ID="btn_consultar" CommandName="search" runat="server" Visible='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>' Text="Consultar" />
-                                                                    <asp:Label ID="txt_total" runat="server" Text='<%# (DataBinder.Eval(Container.DataItem, "cantidad") * DataBinder.Eval(Container.DataItem, "precio")) * (1 - (DataBinder.Eval(Container.DataItem, "descuento") / 100))%>' Visible='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, True, False)  %>' ></asp:Label>
+                                                                    <asp:Label ID="txt_total" runat="server" Text='<%# (DataBinder.Eval(Container.DataItem, "cantidad") * DataBinder.Eval(Container.DataItem, "precio")) * (1 - (DataBinder.Eval(Container.DataItem, "descuento") / 100))%>' Visible='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, True, False)  %>'></asp:Label>
                                                                 </td>
- </tr>
-                                                            </ItemTemplate>
-                                                            <FooterTemplate>
-                                                               
-                                                            </FooterTemplate>
-                                                        </asp:Repeater>
-                                                    </table>
-                                                </td>
-                                                <td>
-                                                    <table class="style4">
-                                                        <tr>
-                                                            <td>
-                                                                <asp:ImageButton ID="btn_agregar_detalle" runat="server" CssClass="style20"
-                                                                    Height="31px"
-                                                                    ImageUrl="~/images/agregar.png"
-                                                                    Width="30px" />
-                                                                <span class="style6">AGREGAR</span>
-                                                            </td>
-                                                            <td>
-                                                                <asp:ImageButton ID="btn_limpiar_detalle" runat="server" CssClass="style24"
-                                                                    Height="22px"
-                                                                    ImageUrl="~/images/limpiar.png"
-                                                                    Width="22px" />
-                                                                <span class="style6">
-                                                                    <br />
-                                                                    <br />
-                                                                    LIMPIAR</span></td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                </tr>
-        <tr>
-            <td>
-            </td>
-        </tr>
-        </table>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Panel ID="Panel3" runat="server" GroupingText="TOTALES"
-                            ForeColor="#000066">
-                            <table class="style4">
-                                <tr>
-                                    <td>
-                                        <table class="style4">
-                                            <tr>
-                                                <td>
-                                                    <asp:Label ID="lbl_subtotal_factura" runat="server" Text="SUBTOTAL"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="txt_subtotal_factura" runat="server"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="lbl_iva_factura" runat="server" Text="IVA"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="txt_iva_factura" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <asp:Label ID="lbl_descuento_factura" runat="server" Text="DESCUENTO"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="txt_descuento_factura" runat="server"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="lbl_ice_factura" runat="server" Text="ICE"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="txt_ice_factura" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>
-                                                    <asp:Label ID="lbl_total_factura" runat="server" CssClass="style12"
-                                                        Text="TOTAL"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="txt_total_factura" runat="server"></asp:Label>
-                                                </td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table class="style4">
-                                            <tr>
-                                                <td>
-                                                    <asp:Label ID="lbl_efectivo_factura" runat="server" Text="EFECTIVO"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="txt_efectivo_factura" runat="server"></asp:TextBox>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="lbl_cambio_factura" runat="server" Text="CAMBIO"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="txt_cambio_factura" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style11">GRACIAS POR SU COMPRA</td>
-                                </tr>
-                            </table>
-                        </asp:Panel>
-                    </td>
-                </tr>
+                                                            </tr>
+                                                        </ItemTemplate>
+                                                        <FooterTemplate>
+                                                        </FooterTemplate>
+                                                    </asp:Repeater>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table class="style4">
+                                                    <tr>
+                                                        <td>
+                                                            <asp:ImageButton ID="btn_agregar_detalle" runat="server" CssClass="style20"
+                                                                Height="31px"
+                                                                ImageUrl="~/images/agregar.png"
+                                                                Width="30px" />
+                                                            <span class="style6">AGREGAR</span>
+                                                        </td>
+                                                        <td>
+                                                            <asp:ImageButton ID="btn_limpiar_detalle" runat="server" CssClass="style24"
+                                                                Height="22px"
+                                                                ImageUrl="~/images/limpiar.png"
+                                                                Width="22px" />
+                                                            <span class="style6">
+                                                                <br />
+                                                                <br />
+                                                                LIMPIAR</span></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </asp:Panel>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Panel ID="Panel3" runat="server" GroupingText="TOTALES"
+                        ForeColor="#000066">
+                        <table class="style4">
+                            <tr>
+                                <td>
+                                    <table class="style4">
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lbl_subtotal_factura" runat="server" Text="SUBTOTAL"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="txt_subtotal_factura" runat="server"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lbl_iva_factura" runat="server" Text="IVA"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="txt_iva_factura" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lbl_descuento_factura" runat="server" Text="DESCUENTO"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="txt_descuento_factura" runat="server"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lbl_ice_factura" runat="server" Text="ICE"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="txt_ice_factura" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+
+                                            <td></td>
+                                            <td>
+                                                <asp:Label ID="lbl_total_factura" runat="server"
+                                                    Text="TOTAL"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="txt_total_factura" runat="server"></asp:Label>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table class="style4">
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lbl_efectivo_factura" runat="server" Text="EFECTIVO"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="txt_efectivo_factura" runat="server"></asp:TextBox>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lbl_cambio_factura" runat="server" Text="CAMBIO"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="txt_cambio_factura" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style11">GRACIAS POR SU COMPRA</td>
+                            </tr>
+                        </table>
+                    </asp:Panel>
+                </td>
+            </tr>
         </table>
 
     </div>

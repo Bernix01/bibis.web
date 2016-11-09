@@ -18,7 +18,7 @@ Public Class Facturacion
             End If
 
         Else
-                If (Not (IsPostBack)) Then
+            If (Not (IsPostBack)) Then
                 ita = New List(Of Item)
                 ita.Add(New Item)
                 ItemList.DataSource = ita
@@ -26,6 +26,8 @@ Public Class Facturacion
             End If
             Compute_Total()
         End If
+        lbl_emision.Text = String.Format("{0:dd/MM/yyyy}", DateTime.Now)
+        lbl_vencimiento.Text = String.Format("{0:dd/MM/yyyy}", DateTime.Now.AddDays(30))
     End Sub
 
     Private Sub Compute_Total()
@@ -35,11 +37,11 @@ Public Class Facturacion
             subt += i.precio * i.cantidad
             dc += i.precio * i.cantidad * (i.descuento / 100)
         Next
-        txt_subtotal_factura.Text = subt
-        txt_descuento_factura.Text = dc
+        txt_subtotal_factura.Text = "$ " & subt
+        txt_descuento_factura.Text = "$ " & dc
         txt_iva_factura.Text = "14%"
         txt_ice_factura.Text = "0%"
-        txt_total_factura.Text = (subt - dc) * 1.14
+        txt_total_factura.Text = "$ " & (subt - dc) * 1.14
     End Sub
     Public Function GetCedula(Identity As IIdentity) As String
         Dim claiim = CType(Identity, ClaimsIdentity).FindFirst("CEDULA")
@@ -54,12 +56,13 @@ Public Class Facturacion
         End If
         Dim cliente = clientes(0)
         Console.WriteLine(cliente.ruc)
-        txt_cliente.Text = cliente.nombre + cliente.apellido
+        txt_ruc.ReadOnly = True
+        txt_cliente.Text = cliente.nombre & " " & cliente.apellido
         txt_cliente.ReadOnly = True
         txt_direccion.Text = cliente.direccion
         txt_direccion.ReadOnly = True
         txt_ciudad.Text = cliente.ciudad
-        txt_direccion.ReadOnly = True
+        txt_ciudad.ReadOnly = True
         txt_telefono.Text = cliente.telefono
         txt_telefono.ReadOnly = True
         txt_correo.Text = cliente.email
@@ -97,23 +100,7 @@ Public Class Facturacion
         Me.ViewState.Add("ita", Me.ita)
     End Sub
     Protected Sub btn_nueva_factura_Click(sender As Object, e As ImageClickEventArgs) Handles btn_nueva_factura.Click
-        txt_ciudad.Text = ""
-        txt_cliente.Text = ""
-        txt_cambio_factura.Text = ""
-        txt_correo.Text = ""
-        txt_descuento_factura.Text = ""
-        txt_direccion.Text = ""
-        txt_efectivo_factura.Text = ""
-        txt_ice_factura.Text = ""
-        txt_iva_factura.Text = ""
-        txt_numero_factura.Text = ""
-        txt_ruc.Text = ""
-        txt_subtotal_factura.Text = ""
-        txt_telefono.Text = ""
-        txt_total_factura.Text = ""
-        ita.Clear()
-        ItemList.DataSource = ita
-
+        Response.Redirect(Request.RawUrl)
     End Sub
 
     Private Sub Facturacion_PreRender(sender As Object, e As EventArgs) Handles Me.PreRender
@@ -122,5 +109,19 @@ Public Class Facturacion
 
     Protected Sub btn_eliminar_factura_Click(sender As Object, e As ImageClickEventArgs) Handles btn_eliminar_factura.Click
         Response.Redirect(Request.RawUrl)
+    End Sub
+
+    Protected Sub btn_agregar_cliente_Click(sender As Object, e As ImageClickEventArgs) Handles btn_agregar_cliente.Click
+        If (Not (IsValid)) Then
+            Return
+        End If
+        Dim c As Cliente = New Cliente()
+        Dim nombre = txt_cliente.Text
+
+        Dim ma = Regex.Match(nombre, "^\s*(\w+ \w+)", RegexOptions.IgnoreCase)
+        c.direccion = txt_direccion.Text
+        c.ciudad = txt_ciudad.Text
+        c.telefono = txt_telefono.Text
+        c.email = txt_correo.Text
     End Sub
 End Class

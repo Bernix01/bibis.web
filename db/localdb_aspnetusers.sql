@@ -49,7 +49,7 @@ CREATE TABLE `aspnetusers` (
 
 LOCK TABLES `aspnetusers` WRITE;
 /*!40000 ALTER TABLE `aspnetusers` DISABLE KEYS */;
-INSERT INTO `aspnetusers` VALUES ('376d6228-5254-41e2-ac4c-03fc2d84e483','gbernal096@hotmail.com',0,'ANrIJtCV4hExPjwT9Touici4G2POUuvXYMCyPR02F9n8d8SNl60VUVj/dtWcjBUMtg==','14fd08b5-8d55-459d-8550-2464a19fa055',NULL,0,0,NULL,1,0,'gbernal096@hotmail.com','0992345044001'),('3a71f6fa-9220-4ab9-88cc-db5c4faec62c','gbernal096@gmail.com',0,'ADV6kbaW92YgxQbMrdbTEZHXpQlxn+QjZop+2eH4Fxm6K8zKBl+C4AXFV1bSZZwrBg==','e31e46d3-a15a-40eb-bb72-7bedc573acba',NULL,0,0,NULL,1,0,'gbernal096@gmail.com','09956487915');
+INSERT INTO `aspnetusers` VALUES ('376d6228-5254-41e2-ac4c-03fc2d84e483','gbernal096@hotmail.com',0,'ANrIJtCV4hExPjwT9Touici4G2POUuvXYMCyPR02F9n8d8SNl60VUVj/dtWcjBUMtg==','14fd08b5-8d55-459d-8550-2464a19fa055',NULL,0,0,NULL,1,0,'gbernal096@hotmail.com','0992345044001'),('3a71f6fa-9220-4ab9-88cc-db5c4faec62c','gbernal096@gmail.com',0,'ADV6kbaW92YgxQbMrdbTEZHXpQlxn+QjZop+2eH4Fxm6K8zKBl+C4AXFV1bSZZwrBg==','e31e46d3-a15a-40eb-bb72-7bedc573acba',NULL,0,0,NULL,1,0,'gbernal096@gmail.com','09956487915'),('9f605a6a-20b5-46f8-b229-9478412ffa4e','super@hotmail.com',0,'AOb64YIVlBwLlUIZgs4KsFClGJeeb+mkFeSUWhbwjvRyBHAiqqE5drFRtKquGkuiVw==','09322288-6a42-45b0-8303-2d326309cd0b',NULL,0,0,NULL,1,0,'super@hotmail.com','0123456789');
 /*!40000 ALTER TABLE `aspnetusers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-08 19:04:04
+-- Dump completed on 2016-11-08 23:42:59

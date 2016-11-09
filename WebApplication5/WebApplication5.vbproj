@@ -447,6 +447,7 @@
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\Ciudad.vb" />
     <Compile Include="Models\Cliente.vb" />
+    <Compile Include="Models\Factura.vb" />
     <Compile Include="Models\FacturaDbContext.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\Item.vb" />

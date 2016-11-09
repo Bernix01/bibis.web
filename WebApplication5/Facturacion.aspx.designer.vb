@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class Facturacion
     
     '''<summary>
-    '''Label1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Image2 control.
     '''</summary>
     '''<remarks>
@@ -84,6 +75,15 @@ Partial Public Class Facturacion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lbl_numero_factura As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''lbl_num_factura control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_num_factura As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''txt_numero_factura control.
@@ -248,6 +248,15 @@ Partial Public Class Facturacion
     Protected WithEvents lbl_fecha_emisionn As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''lbl_emision control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_emision As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''lbl_fecha_vencimiento control.
     '''</summary>
     '''<remarks>
@@ -255,6 +264,15 @@ Partial Public Class Facturacion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lbl_fecha_vencimiento As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''lbl_vencimiento control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_vencimiento As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''lbl_forma_pago control.
