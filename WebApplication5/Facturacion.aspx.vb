@@ -31,8 +31,8 @@ Public Class Facturacion
     End Sub
 
     Private Sub Compute_Total()
-        Dim subt = 0
-        Dim dc = 0
+        Dim subt As Double = 0
+        Dim dc As Double = 0
         For Each i In ita
             subt += i.precio * i.cantidad
             dc += i.precio * i.cantidad * (i.descuento / 100)
@@ -115,13 +115,9 @@ Public Class Facturacion
         If (Not (IsValid)) Then
             Return
         End If
-        Dim c As Cliente = New Cliente()
-        Dim nombre = txt_cliente.Text
+        Dim id As String = fdbc.SaveCliente(txt_cliente.Text, "", txt_direccion.Text, txt_correo.Text, txt_ruc.Text, txt_telefono.Text, txt_ciudad.Text)
+        Dim c As Cliente = fdbc.GetCliente(id.ToString)(0)
 
-        Dim ma = Regex.Match(nombre, "^\s*(\w+ \w+)", RegexOptions.IgnoreCase)
-        c.direccion = txt_direccion.Text
-        c.ciudad = txt_ciudad.Text
-        c.telefono = txt_telefono.Text
-        c.email = txt_correo.Text
+
     End Sub
 End Class
