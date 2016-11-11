@@ -16,30 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aspnetuserroles`
+-- Table structure for table `item_x_factura`
 --
 
-DROP TABLE IF EXISTS `aspnetuserroles`;
+DROP TABLE IF EXISTS `item_x_factura`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetuserroles` (
-  `UserId` varchar(128) NOT NULL,
-  `RoleId` varchar(128) NOT NULL,
-  PRIMARY KEY (`UserId`,`RoleId`),
-  KEY `IX_UserId` (`UserId`) USING HASH,
-  KEY `IX_RoleId` (`RoleId`) USING HASH,
-  CONSTRAINT `FK_AspNetUserRoles_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_AspNetUserRoles_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `item_x_factura` (
+  `id_factura` int(11) DEFAULT NULL,
+  `id_item` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `descuento` int(11) DEFAULT NULL,
+  KEY `fk_item_idx` (`id_item`),
+  KEY `fk_factura_idx` (`id_factura`),
+  CONSTRAINT `fk_factura` FOREIGN KEY (`id_factura`) REFERENCES `factura` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_item` FOREIGN KEY (`id_item`) REFERENCES `item` (`iditem`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aspnetuserroles`
+-- Dumping data for table `item_x_factura`
 --
 
-LOCK TABLES `aspnetuserroles` WRITE;
-/*!40000 ALTER TABLE `aspnetuserroles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aspnetuserroles` ENABLE KEYS */;
+LOCK TABLES `item_x_factura` WRITE;
+/*!40000 ALTER TABLE `item_x_factura` DISABLE KEYS */;
+INSERT INTO `item_x_factura` VALUES (1,12,24,10),(1,34,5,0);
+/*!40000 ALTER TABLE `item_x_factura` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-11  8:30:46
+-- Dump completed on 2016-11-11  8:30:45
