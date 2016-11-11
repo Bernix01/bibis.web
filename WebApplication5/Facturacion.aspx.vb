@@ -37,11 +37,11 @@ Public Class Facturacion
             subt += i.precio * i.cantidad
             dc += i.precio * i.cantidad * (i.descuento / 100)
         Next
-        txt_subtotal_factura.Text = "$ " & subt
-        txt_descuento_factura.Text = "$ " & dc
+        txt_subtotal_factura.Text = subt
+        txt_descuento_factura.Text = dc
         txt_iva_factura.Text = "14%"
         txt_ice_factura.Text = "0%"
-        txt_total_factura.Text = "$ " & (subt - dc) * 1.14
+        txt_total_factura.Text = (subt - dc) * 1.14
     End Sub
     Public Function GetCedula(Identity As IIdentity) As String
         Dim claiim = CType(Identity, ClaimsIdentity).FindFirst("CEDULA")
@@ -71,6 +71,8 @@ Public Class Facturacion
         txt_telefono.ReadOnly = True
         txt_correo.Text = cliente.email
         txt_correo.ReadOnly = True
+
+        btn_agregar_cliente.Visible = False
     End Sub
 
     Private Sub btn_agregar_detalle_Click(sender As Object, e As ImageClickEventArgs) Handles btn_agregar_detalle.Click
@@ -89,6 +91,7 @@ Public Class Facturacion
         ita.Add(New Item()) 'agrego uno por defecto
         ItemList.DataBind() 'actualizo la vista de repetidor
     End Sub
+
     Protected Sub ItaCommand(sender As Object, e As RepeaterCommandEventArgs)
         Dim itd As TextBox = DirectCast(e.Item.FindControl("txt_codigo_producto"), TextBox) 'Cuadro de texto en el cual ingresas el id
         Dim i As Item = fdbc.GetItem(itd.Text) 'Traigo el item de la base de datos
@@ -103,6 +106,7 @@ Public Class Facturacion
         ita(e.Item.ItemIndex) = i 'lo reemplazo con el recientemente obtenido item de la base de daots
         Me.ViewState.Add("ita", Me.ita)
     End Sub
+
     Protected Sub btn_nueva_factura_Click(sender As Object, e As ImageClickEventArgs) Handles btn_nueva_factura.Click
         Response.Redirect(Request.RawUrl)
     End Sub
@@ -121,6 +125,27 @@ Public Class Facturacion
         End If
         Dim id As String = fdbc.SaveCliente(txt_cliente.Text, "", txt_direccion.Text, txt_correo.Text, txt_ruc.Text, txt_telefono.Text, txt_ciudad.Text).ToString()
         buscarcliente()
+        btn_agregar_cliente.Visible = False
 
+    End Sub
+
+    Private Sub grabarFactura()
+        Dim idfa As Int16 = CType(fdbc.SaveInvoice(lbl_num_factura.Text, GetCedula(Context.User.Identity), txt_ruc.Text, If(ddl_forma_pago.Text = "Efectivo", 1, 0), txt_total_factura.Text), Int16)
+        If (idfa <> -1) Then
+            grabarItems(idfa)
+        End If
+    End Sub
+
+    Private Sub grabarItems(idfa As String)
+        For Each i In ita
+            If (i.Iditem = -1) Then
+                Continue For
+            End If
+            fdbc.SaveItemInInvoice(i.Iditem, i.cantidad, i.descuento, idfa)
+        Next
+    End Sub
+
+    Protected Sub btn_generar_factura_Click(sender As Object, e As ImageClickEventArgs) Handles btn_generar_factura.Click
+        grabarFactura()
     End Sub
 End Class

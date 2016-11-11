@@ -344,7 +344,7 @@
                                                 <asp:Label ID="lbl_subtotal_factura" runat="server" Text="SUBTOTAL"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:Label ID="txt_subtotal_factura" runat="server"></asp:Label>
+                                                $ <asp:Label ID="txt_subtotal_factura" runat="server"></asp:Label>
                                             </td>
                                             <td>
                                                 <asp:Label ID="lbl_iva_factura" runat="server" Text="IVA"></asp:Label>
@@ -358,7 +358,7 @@
                                                 <asp:Label ID="lbl_descuento_factura" runat="server" Text="DESCUENTO"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:Label ID="txt_descuento_factura" runat="server"></asp:Label>
+                                                $ <asp:Label ID="txt_descuento_factura" runat="server"></asp:Label>
                                             </td>
                                             <td>
                                                 <asp:Label ID="lbl_ice_factura" runat="server" Text="ICE"></asp:Label>
@@ -376,7 +376,7 @@
                                                     Text="TOTAL"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:Label ID="txt_total_factura" runat="server"></asp:Label>
+                                                $ <asp:Label ID="txt_total_factura" runat="server"></asp:Label>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -397,7 +397,7 @@
                                                 <asp:Label ID="lbl_cambio_factura" runat="server" Text="CAMBIO"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:Label ID="txt_cambio_factura" runat="server"></asp:Label>
+                                                $ <asp:Label ID="txt_cambio_factura" runat="server"></asp:Label>
                                             </td>
                                         </tr>
                                     </table>
