@@ -40,7 +40,7 @@ CREATE TABLE `item_x_factura` (
 
 LOCK TABLES `item_x_factura` WRITE;
 /*!40000 ALTER TABLE `item_x_factura` DISABLE KEYS */;
-INSERT INTO `item_x_factura` VALUES (1,12,24,10),(1,34,5,0);
+INSERT INTO `item_x_factura` VALUES (1,12,24,10),(1,34,5,0),(3,12,5,0),(3,14,6,6);
 /*!40000 ALTER TABLE `item_x_factura` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-11  8:30:45
+-- Dump completed on 2016-11-11 23:40:15
