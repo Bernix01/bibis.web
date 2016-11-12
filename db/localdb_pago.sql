@@ -16,33 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `detalle`
+-- Table structure for table `pago`
 --
 
-DROP TABLE IF EXISTS `detalle`;
+DROP TABLE IF EXISTS `pago`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `detalle` (
-  `iddetalle` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL DEFAULT '1',
-  `importe_cant` double NOT NULL,
-  `iditem` int(11) DEFAULT NULL,
-  `idautec` int(11) NOT NULL,
-  PRIMARY KEY (`iddetalle`,`idautec`),
-  KEY `iditem_idx` (`iditem`),
-  KEY `idautec_idx` (`idautec`),
-  CONSTRAINT `idautec` FOREIGN KEY (`idautec`) REFERENCES `autec` (`idautec`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `iditem` FOREIGN KEY (`iditem`) REFERENCES `item` (`iditem`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `pago` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_tarjeta` varchar(18) DEFAULT NULL,
+  `num_tarjeta` varchar(18) DEFAULT NULL,
+  `efectivo` double DEFAULT NULL,
+  `total` double NOT NULL,
+  `monto_tarjeta` double DEFAULT NULL,
+  `id_factura_fk` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`id_factura_fk`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `id_factura_fk_UNIQUE` (`id_factura_fk`),
+  KEY `fk_factura_idx` (`id_factura_fk`),
+  CONSTRAINT `fk_factura_id` FOREIGN KEY (`id_factura_fk`) REFERENCES `factura` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `detalle`
+-- Dumping data for table `pago`
 --
 
-LOCK TABLES `detalle` WRITE;
-/*!40000 ALTER TABLE `detalle` DISABLE KEYS */;
-/*!40000 ALTER TABLE `detalle` ENABLE KEYS */;
+LOCK TABLES `pago` WRITE;
+/*!40000 ALTER TABLE `pago` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pago` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-12 16:41:56
+-- Dump completed on 2016-11-12 16:41:57

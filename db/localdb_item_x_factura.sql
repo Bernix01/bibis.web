@@ -29,7 +29,7 @@ CREATE TABLE `item_x_factura` (
   `descuento` int(11) DEFAULT NULL,
   KEY `fk_item_idx` (`id_item`),
   KEY `fk_factura_idx` (`id_factura`),
-  CONSTRAINT `fk_factura` FOREIGN KEY (`id_factura`) REFERENCES `factura` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_factura` FOREIGN KEY (`id_factura`) REFERENCES `factura` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_item` FOREIGN KEY (`id_item`) REFERENCES `item` (`iditem`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,7 +40,6 @@ CREATE TABLE `item_x_factura` (
 
 LOCK TABLES `item_x_factura` WRITE;
 /*!40000 ALTER TABLE `item_x_factura` DISABLE KEYS */;
-INSERT INTO `item_x_factura` VALUES (1,12,24,10),(1,34,5,0),(3,12,5,0),(3,14,6,6);
 /*!40000 ALTER TABLE `item_x_factura` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-11 23:40:15
+-- Dump completed on 2016-11-12 16:41:56
