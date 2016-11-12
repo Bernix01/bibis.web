@@ -1,5 +1,7 @@
 ﻿Imports System
 Imports System.Data.Entity
+Imports System.Globalization
+Imports WebApplication5
 
 Public Class FacturaDbContext
     Inherits ApplicationDbContext
@@ -18,9 +20,9 @@ Public Class FacturaDbContext
         Return asd(0)
     End Function
 
-    Friend Function SaveInvoice(numFactura As String, vendedor As String, cliente As String, formaPago As String, total As String)
+    Friend Function SaveInvoice(numFactura As String, vendedor As String, cliente As String, formaPago As String, total As Double)
         Try
-            Dim asd = Me.Database.SqlQuery(Of Int16)("grabarFactura(@nombre,@apellido,@direccion,@email)", New MySqlParameter("nombre", vendedor), New MySqlParameter("apellido", cliente), New MySqlParameter("direccion", formaPago), New MySqlParameter("email", total)).ToArray()
+            Dim asd = Me.Database.SqlQuery(Of Int16)("grabarFactura(@nombre,@apellido,@direccion,@email)", New MySqlParameter("nombre", vendedor), New MySqlParameter("apellido", cliente), New MySqlParameter("direccion", formaPago), New MySqlParameter("email", total.ToString("F", CultureInfo.InvariantCulture))).ToArray()
             Return asd(0)
         Catch e As MySqlException
             e.ToString()
@@ -46,4 +48,34 @@ Public Class FacturaDbContext
             e.ToString()
         End Try
     End Sub
+
+    Friend Function GetFactura(idf As Int16) As Factura
+        Try
+            Dim asd = Me.Database.SqlQuery(Of Factura)("getFactura(@id)", New MySqlParameter("id", idf)).ToArray()
+            Return asd(0)
+        Catch e As Exception
+            e.ToString()
+            Return Nothing
+        End Try
+    End Function
+
+    Friend Function GetNumFactura() As Int16
+        Try
+            Dim num = Me.Database.SqlQuery(Of Int16)("getNumFactura()").ToArray
+            Return num(0) + 1
+        Catch ex As Exception
+            ex.ToString()
+            Return 0
+        End Try
+    End Function
+
+    Friend Function GetItems(idfa As Short) As List(Of Item)
+        Try
+            Dim ita As List(Of Item) = Me.Database.SqlQuery(Of Item)("getItemsFactura(@id)", New MySqlParameter("id", idfa)).ToList()
+            Return ita
+        Catch ex As Exception
+            ex.ToString()
+            Return New List(Of Item)
+        End Try
+    End Function
 End Class

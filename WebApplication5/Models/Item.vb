@@ -19,6 +19,7 @@ Public Class Item : Implements IComparable
         Me.cantidad = 0
         Me.descuento = 0
     End Sub
+
     Public Function CompareTo(o As Object) As Integer _
          Implements IComparable.CompareTo
         Dim e As Item = TryCast(o, Item)
