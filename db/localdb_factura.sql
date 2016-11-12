@@ -29,6 +29,7 @@ CREATE TABLE `factura` (
   `id_cliente` varchar(13) NOT NULL,
   `forma_pago` int(11) NOT NULL,
   `total` double NOT NULL,
+  `estado` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_cliente_idx` (`id_cliente`),
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-12 16:41:56
+-- Dump completed on 2016-11-12 16:43:45
