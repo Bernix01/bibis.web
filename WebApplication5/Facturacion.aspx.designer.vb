@@ -41,15 +41,6 @@ Partial Public Class Facturacion
     Protected WithEvents btn_nueva_factura As Global.System.Web.UI.WebControls.ImageButton
     
     '''<summary>
-    '''btn_modificar_factura control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btn_modificar_factura As Global.System.Web.UI.WebControls.ImageButton
-    
-    '''<summary>
     '''btn_generar_factura control.
     '''</summary>
     '''<remarks>
@@ -57,15 +48,6 @@ Partial Public Class Facturacion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btn_generar_factura As Global.System.Web.UI.WebControls.ImageButton
-    
-    '''<summary>
-    '''btn_eliminar_factura control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btn_eliminar_factura As Global.System.Web.UI.WebControls.ImageButton
     
     '''<summary>
     '''lbl_numero_factura control.
@@ -102,6 +84,15 @@ Partial Public Class Facturacion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btn_buscar_factura As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
+    '''anulada control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents anulada As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Panel1 control.
@@ -401,15 +392,6 @@ Partial Public Class Facturacion
     Protected WithEvents btn_limpiar_detalle As Global.System.Web.UI.WebControls.ImageButton
     
     '''<summary>
-    '''Panel3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Panel3 As Global.System.Web.UI.WebControls.Panel
-    
-    '''<summary>
     '''lbl_subtotal_factura control.
     '''</summary>
     '''<remarks>
@@ -500,6 +482,15 @@ Partial Public Class Facturacion
     Protected WithEvents txt_total_factura As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''efectivoContainer control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents efectivoContainer As Global.System.Web.UI.HtmlControls.HtmlTableRow
+    
+    '''<summary>
     '''lbl_efectivo_factura control.
     '''</summary>
     '''<remarks>
@@ -534,4 +525,67 @@ Partial Public Class Facturacion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txt_cambio_factura As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''lbl_nombre_tarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_nombre_tarjeta As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddl_nombre_tarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddl_nombre_tarjeta As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''lbl_codigo_tarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_codigo_tarjeta As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_codigo_tarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_codigo_tarjeta As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txt_tarjeta_valor control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_tarjeta_valor As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Msg control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Msg As Global.System.Web.UI.WebControls.Label
 End Class

@@ -14,55 +14,66 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-         <style type="text/css">
-        .style4
-        {
+    <style type="text/css">
+        .label{
+            font-size:1.5em;
+        }
+        .style4 {
             width: 100%;
         }
-        .style5
-        {}
-        .style6
-        {
+
+        .style5 {
+        }
+
+        .style6 {
             font-size: xx-small;
         }
-        .style7
-        {
+
+        .style7 {
             height: 23px;
         }
-        .style9
-        {}
-        .style10
-        {}
-        .style11
-        {
+
+        .style9 {
+        }
+
+        .style10 {
+        }
+
+        .style11 {
             color: #000080;
             font-size: medium;
             text-align: center;
         }
-        .style12
-        {
+
+        .style12 {
             float: right;
         }
-        .style13
-        {}
-        .style14
-        {}
-        .style15
-        {}
-        .style16
-        {}
-        .style17
-        {
+
+        .style13 {
+        }
+
+        .style14 {
+        }
+
+        .style15 {
+        }
+
+        .style16 {
+        }
+
+        .style17 {
             height: 26px;
         }
-        .style18
-        {}
-        .style20
-        {}
-        .style21
-        {
+
+        .style18 {
+        }
+
+        .style20 {
+        }
+
+        .style21 {
             text-transform: uppercase;
             color: #FF3300;
             font-size: xx-large;
@@ -70,16 +81,17 @@
             font-family: Cambria;
             text-align: center;
         }
-        .style22
-        {
+
+        .style22 {
             float: right;
         }
-        .style23
-        {
+
+        .style23 {
             float: left;
         }
-        .style24
-        {}
+
+        .style24 {
+        }
     </style>
 </head>
 <body>

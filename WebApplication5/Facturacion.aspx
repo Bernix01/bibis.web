@@ -43,14 +43,6 @@
                                                 <br />
                                                 NUEVA</span></td>
                                         <td>
-                                            <asp:ImageButton ID="btn_modificar_factura" runat="server" CssClass="style13"
-                                                Height="30px"
-                                                ImageUrl="~/images/editar.png"
-                                                Width="32px" />
-                                            <span class="style6">
-                                                <br />
-                                                MODIFICAR</span></td>
-                                        <td>
                                             <asp:ImageButton ID="btn_generar_factura" runat="server" CssClass="style14"
                                                 Height="34px"
                                                 ImageUrl="~/images/GRABAR.gif"
@@ -58,14 +50,7 @@
                                             <span class="style6">
                                                 <br />
                                                 GENERAR</span></td>
-                                        <td>
-                                            <asp:ImageButton ID="btn_eliminar_factura" runat="server" CssClass="style15"
-                                                Height="30px"
-                                                ImageUrl="~/images/borrar.gif"
-                                                Width="27px" />
-                                            <span class="style6">
-                                                <br />
-                                                ELIMINAR</span></td>
+                                        
                                     </tr>
                                 </table>
                             </td>
@@ -88,7 +73,8 @@
                                             <span class="style6">
                                                 <br />
                                                 BUSCAR</span></td>
-                                        <td></td>
+                                        <td>
+                                    <asp:Label ID="anulada"  runat="server" CssClass="label label-danger" Text="Anulada" Visible="False"></asp:Label></td>
                                         <td></td>
                                     </tr>
                                 </table>
@@ -135,8 +121,7 @@
                                             </td>
                                             <td class="style7">
                                                 <asp:TextBox ID="txt_cliente" CssClass="form-control" runat="server"></asp:TextBox>
-                                                <asp:RegularExpressionValidator runat="server" ControlToValidate="txt_cliente" CssClass="text-danger" ValidationExpression="^(\w+ ){3}(\w+)" ErrorMessage="Nombre completo es requerido." ></asp:RegularExpressionValidator>
-                                            </td>
+                                                </td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -204,6 +189,7 @@
                                                 <asp:DropDownList ID="ddl_forma_pago" runat="server">
                                                     <asp:ListItem>EFECTIVO</asp:ListItem>
                                                     <asp:ListItem>CREDITO</asp:ListItem>
+                                                    <asp:ListItem>EFECTIVO Y CREDITO</asp:ListItem>
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>
@@ -289,7 +275,7 @@
                                                                     %</td>
                                                                 <td>
                                                                     <asp:Button ID="btn_consultar" CommandName="search" runat="server" Visible='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, False, True)  %>' Text="Consultar" />
-                                                                    <asp:Label ID="txt_total" runat="server" Text='<%# (DataBinder.Eval(Container.DataItem, "cantidad") * DataBinder.Eval(Container.DataItem, "precio")) * (1 - (DataBinder.Eval(Container.DataItem, "descuento") / 100))%>' Visible='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, True, False)  %>'></asp:Label>
+                                                                    <asp:Label ID="txt_total" runat="server" Text='<%# Math.Truncate((DataBinder.Eval(Container.DataItem, "cantidad") * DataBinder.Eval(Container.DataItem, "precio")) * (1 - (DataBinder.Eval(Container.DataItem, "descuento") / 100)) * 100) / 100%>' Visible='<%# If(DataBinder.Eval(Container.DataItem, "Iditem") <> -1, True, False)  %>'></asp:Label>
                                                                 </td>
                                                             </tr>
                                                         </ItemTemplate>
@@ -332,19 +318,14 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <asp:Panel ID="Panel3" runat="server" GroupingText="TOTALES"
-                        ForeColor="#000066">
-                        <table class="style4">
-                            <tr>
                                 <td>
                                     <table class="style4">
                                         <tr>
                                             <td>
                                                 <asp:Label ID="lbl_subtotal_factura" runat="server" Text="SUBTOTAL"></asp:Label>
                                             </td>
-                                            <td>
-                                                $ <asp:Label ID="txt_subtotal_factura" runat="server"></asp:Label>
+                                            <td>$
+                                                <asp:Label ID="txt_subtotal_factura" runat="server"></asp:Label>
                                             </td>
                                             <td>
                                                 <asp:Label ID="lbl_iva_factura" runat="server" Text="IVA"></asp:Label>
@@ -357,8 +338,8 @@
                                             <td>
                                                 <asp:Label ID="lbl_descuento_factura" runat="server" Text="DESCUENTO"></asp:Label>
                                             </td>
-                                            <td>
-                                                $ <asp:Label ID="txt_descuento_factura" runat="server"></asp:Label>
+                                            <td>$
+                                                <asp:Label ID="txt_descuento_factura" runat="server"></asp:Label>
                                             </td>
                                             <td>
                                                 <asp:Label ID="lbl_ice_factura" runat="server" Text="ICE"></asp:Label>
@@ -375,18 +356,13 @@
                                                 <asp:Label ID="lbl_total_factura" runat="server"
                                                     Text="TOTAL"></asp:Label>
                                             </td>
-                                            <td>
-                                                $ <asp:Label ID="txt_total_factura" runat="server"></asp:Label>
+                                            <td>$
+                                                <asp:Label ID="txt_total_factura" runat="server"></asp:Label>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
-                                    </table>
-                                </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <table class="style4">
-                                        <tr>
+                            <tr id="efectivoContainer" runat="server">
                                             <td>
                                                 <asp:Label ID="lbl_efectivo_factura" runat="server" Text="EFECTIVO"></asp:Label>
                                             </td>
@@ -396,15 +372,42 @@
                                             <td>
                                                 <asp:Label ID="lbl_cambio_factura" runat="server" Text="CAMBIO"></asp:Label>
                                             </td>
-                                            <td>
-                                                $ <asp:Label ID="txt_cambio_factura" runat="server"></asp:Label>
+                                            <td>$
+                                                <asp:Label ID="txt_cambio_factura" runat="server"></asp:Label>
                                             </td>
-                                        </tr>
-                                    </table>
-                                </td>
                             </tr>
                             <tr>
-                                <td class="style11">GRACIAS POR SU COMPRA</td>
+
+                                <td>
+                                    <asp:Label ID="lbl_nombre_tarjeta" runat="server" Text="NOMBRE DE TARJETA"></asp:Label><br />
+                                        <asp:DropDownList ID="ddl_nombre_tarjeta" runat="server">
+                                            <asp:ListItem>VISA</asp:ListItem>
+                                            <asp:ListItem>MASTERCARD</asp:ListItem>
+                                        </asp:DropDownList>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lbl_codigo_tarjeta" runat="server" Text="Número de tarjeta"></asp:Label><br />
+                                        <asp:TextBox ID="txt_codigo_tarjeta" runat="server"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Label ID="Label1" runat="server" Text="Monto"></asp:Label><br />
+                                        <asp:TextBox ID="txt_tarjeta_valor" runat="server"></asp:TextBox>
+                                </td>
+                                <td>
+                                        &nbsp;</td>
+                                </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <br />
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+
+                        </tr>
+                            <tr>
+                                <td class="style11">
+                                    <asp:Label ID="Msg"  runat="server" CssClass="label label-info" Text=""></asp:Label></td>
                             </tr>
                         </table>
                     </asp:Panel>

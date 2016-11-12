@@ -59,6 +59,17 @@ Public Class FacturaDbContext
         End Try
     End Function
 
+    Friend Function GrabarPago(idfa As Int16, pago As Pago) As Int16
+        Try
+            Dim asd = Me.Database.SqlQuery(Of Int16)("grabarPago(@id,@tipotar,@numtar,@efe,@tot,@montotar)", New MySqlParameter("id", idfa), New MySqlParameter("tipotar", pago.tipo_tarjeta), New MySqlParameter("numtar", pago.num_tarjeta), New MySqlParameter("efe", pago.efectivo.ToString("F", CultureInfo.InvariantCulture)), New MySqlParameter("tot", pago.total.ToString("F", CultureInfo.InvariantCulture)), New MySqlParameter("montotar", pago.monto_tarjeta.ToString("F", CultureInfo.InvariantCulture))).ToArray()
+            asd.Count
+            Return If(asd.Count = 1, asd(0), -1)
+        Catch e As Exception
+            Console.WriteLine(e.ToString())
+            Return Nothing
+        End Try
+    End Function
+
     Friend Function GetNumFactura() As Int16
         Try
             Dim num = Me.Database.SqlQuery(Of Int16)("getNumFactura()").ToArray
@@ -69,6 +80,15 @@ Public Class FacturaDbContext
         End Try
     End Function
 
+    Friend Function GetPago(idfa As Int16) As Pago
+        Try
+            Dim num = Me.Database.SqlQuery(Of Pago)("getPago(@idfa)", New MySqlParameter("idfa", idfa)).ToArray
+            Return If(num.Count = 1, num(0), Nothing)
+        Catch ex As Exception
+            ex.ToString()
+            Return Nothing
+        End Try
+    End Function
     Friend Function GetItems(idfa As Short) As List(Of Item)
         Try
             Dim ita As List(Of Item) = Me.Database.SqlQuery(Of Item)("getItemsFactura(@id)", New MySqlParameter("id", idfa)).ToList()
@@ -78,4 +98,12 @@ Public Class FacturaDbContext
             Return New List(Of Item)
         End Try
     End Function
+
+    Friend Sub Anular(idfa As Short)
+        Try
+            Me.Database.SqlQuery(Of Item)("anularFactura(@id)", New MySqlParameter("id", idfa))
+        Catch ex As Exception
+            ex.ToString()
+        End Try
+    End Sub
 End Class

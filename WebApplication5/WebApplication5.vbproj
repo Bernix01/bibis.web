@@ -451,6 +451,7 @@
     <Compile Include="Models\FacturaDbContext.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\Item.vb" />
+    <Compile Include="Models\Pago.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
