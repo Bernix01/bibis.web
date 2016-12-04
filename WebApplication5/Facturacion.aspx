@@ -50,7 +50,14 @@
                                             <span class="style6">
                                                 <br />
                                                 GENERAR</span></td>
-                                        
+                                         <td>
+                                            <asp:ImageButton ID="btn_eliminar_factura" runat="server" CssClass="style15"
+                                                Height="30px"
+                                                ImageUrl="~/images/borrar.gif"
+                                                Width="27px" Visible="false"/>
+                                            <span class="style6">
+                                                <br />
+                                                ELIMINAR</span></td>
                                     </tr>
                                 </table>
                             </td>
@@ -402,19 +409,15 @@
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
-                        </table>
-
-                        </tr>
                             <tr>
                                 <td class="style11">
                                     <asp:Label ID="Msg"  runat="server" CssClass="label label-info" Text=""></asp:Label></td>
                             </tr>
                         </table>
-                    </asp:Panel>
-                </td>
-            </tr>
-        </table>
 
+    </div>
+
+</div>
     </div>
 
 </asp:Content>

@@ -220,7 +220,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Credito.aspx" />
-    <Content Include="Arqueo.aspx" />
+    <Content Include="RealizarArqueo.aspx" />
     <Content Include="images\editar.png" />
     <Content Include="images\emcabezado.gif" />
     <Content Include="Facturacion.aspx" />
@@ -412,11 +412,12 @@
       <DependentUpon>Credito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Arqueo.aspx.designer.vb">
-      <DependentUpon>Arqueo.aspx</DependentUpon>
+    <Compile Include="Models\ArqueoDbContext.vb" />
+    <Compile Include="RealizarArqueo.aspx.designer.vb">
+      <DependentUpon>RealizarArqueo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Arqueo.aspx.vb">
-      <DependentUpon>Arqueo.aspx</DependentUpon>
+    <Compile Include="RealizarArqueo.aspx.vb">
+      <DependentUpon>RealizarArqueo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Facturacion.aspx.designer.vb">
@@ -445,6 +446,7 @@
     </Compile>
     <Compile Include="Migrations\201610300008000_USERCEDULA2.vb" />
     <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="Models\Arqueo.vb" />
     <Compile Include="Models\Ciudad.vb" />
     <Compile Include="Models\Cliente.vb" />
     <Compile Include="Models\Factura.vb" />

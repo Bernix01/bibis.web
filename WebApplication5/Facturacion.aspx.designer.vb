@@ -50,6 +50,15 @@ Partial Public Class Facturacion
     Protected WithEvents btn_generar_factura As Global.System.Web.UI.WebControls.ImageButton
     
     '''<summary>
+    '''btn_eliminar_factura control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_eliminar_factura As Global.System.Web.UI.WebControls.ImageButton
+    
+    '''<summary>
     '''lbl_numero_factura control.
     '''</summary>
     '''<remarks>

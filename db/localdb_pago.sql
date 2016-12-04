@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: localhost    Database: localdb
+-- Host: 181.198.214.34    Database: localdb
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 
@@ -35,17 +35,8 @@ CREATE TABLE `pago` (
   UNIQUE KEY `id_factura_fk_UNIQUE` (`id_factura_fk`),
   KEY `fk_factura_idx` (`id_factura_fk`),
   CONSTRAINT `fk_factura_id` FOREIGN KEY (`id_factura_fk`) REFERENCES `factura` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pago`
---
-
-LOCK TABLES `pago` WRITE;
-/*!40000 ALTER TABLE `pago` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pago` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -56,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-12 16:43:46
+-- Dump completed on 2016-12-03 21:35:36

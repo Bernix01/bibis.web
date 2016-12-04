@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: localhost    Database: localdb
+-- Host: 181.198.214.34    Database: localdb
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 
@@ -35,15 +35,6 @@ CREATE TABLE `detalle` (
   CONSTRAINT `iditem` FOREIGN KEY (`iditem`) REFERENCES `item` (`iditem`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `detalle`
---
-
-LOCK TABLES `detalle` WRITE;
-/*!40000 ALTER TABLE `detalle` DISABLE KEYS */;
-/*!40000 ALTER TABLE `detalle` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -54,4 +45,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-12 16:43:45
+-- Dump completed on 2016-12-03 21:35:35

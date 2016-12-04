@@ -131,7 +131,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Facturacion">Facturación</a></li>
-                        <li><a runat="server" href="~/Arqueo">Arqueo</a></li>
+                        <li><a runat="server" href="~/RealizarArqueo">Arqueo</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>

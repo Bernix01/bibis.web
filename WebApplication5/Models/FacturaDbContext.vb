@@ -89,6 +89,7 @@ Public Class FacturaDbContext
             Return Nothing
         End Try
     End Function
+
     Friend Function GetItems(idfa As Short) As List(Of Item)
         Try
             Dim ita As List(Of Item) = Me.Database.SqlQuery(Of Item)("getItemsFactura(@id)", New MySqlParameter("id", idfa)).ToList()
@@ -101,7 +102,7 @@ Public Class FacturaDbContext
 
     Friend Sub Anular(idfa As Short)
         Try
-            Me.Database.SqlQuery(Of Item)("anularFactura(@id)", New MySqlParameter("id", idfa))
+            Me.Database.SqlQuery(Of Factura)("anularFactura(@idfa)", New MySqlParameter("idfa", idfa))
         Catch ex As Exception
             ex.ToString()
         End Try

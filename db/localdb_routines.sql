@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: localhost    Database: localdb
+-- Host: 181.198.214.34    Database: localdb
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 
@@ -102,9 +102,55 @@ SET character_set_client = @saved_cs_client;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `anularFactura`(IN idfa INT)
+CREATE DEFINER=`localuser`@`localhost` PROCEDURE `anularFactura`(IN idfa INT)
 BEGIN
-	UPDATE factura set estado = 1 WHERE id = idfa;
+
+	UPDATE factura 
+SET 
+    factura.estado = 1
+WHERE
+    factura.id = idfa;
+    SELECT * from factura where factura.id = idfa;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `arquear` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`localuser`@`%` PROCEDURE `arquear`(IN v1 VARCHAR(13),IN v2 DOUBLE,IN v3 DOUBLE, IN v4 DOUBLE)
+BEGIN
+	DECLARE asd INT DEFAULT 1;
+	SET @date := (SELECT fecha from arqueo ORDER BY fecha DESC LIMIT 1);
+    IF (@date IS NULL) THEN
+		SET @date := (SELECT fecha from factura ORDER BY fecha DESC LIMIT 1);
+    END IF;
+	SET @vv2 := (SELECT SUM(monto_tarjeta) FROM pago inner join (Select * from factura WHERE factura.fecha >= @date AND factura.id_cliente = v1) AS data ON pago.id_factura_fk = data.id WHERE pago.tipo_tarjeta LIKE 'VISA' );
+	SET @vv4 := (SELECT SUM(efectivo) FROM pago inner join (Select * from factura WHERE factura.fecha >= @date AND factura.id_cliente = v1) AS data ON pago.id_factura_fk = data.id);
+	SET @vv3 := (SELECT SUM(monto_tarjeta) FROM pago inner join (Select * from factura WHERE factura.fecha >= @date AND factura.id_cliente = v1) AS data ON pago.id_factura_fk = data.id WHERE pago.tipo_tarjeta LIKE 'MASTERCARD');
+	#SELECT SUM(monto_tarjeta) FROM pago inner join (Select * from factura WHERE factura.fecha >= @date AND factura.id_cliente = v1) AS data ON pago.id_factura_fk = data.id WHERE pago.tipo_tarjeta LIKE 'VISA' ;
+    IF v3 != @vv2 THEN
+		SET asd=0;
+    END IF; 
+		IF v2 != @vv4 THEN
+			SET asd= 0;
+		END IF;
+		 IF v4 != @vv3 THEN
+			SET asd= 0;
+         END IF;
+		
+			IF ( asd = 1) THEN
+				INSERT INTO ARQUEO VALUES(DEFAULT,v1,DEFAULT, v2,v4,v3,(v2+v3+v4));
+            END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -124,6 +170,25 @@ DELIMITER ;;
 CREATE DEFINER=`localuser`@`localhost` PROCEDURE `borrarFactura`(IN idfa INT)
 BEGIN
 	DELETE FROM factura where id = idfa;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `getArqueo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`localuser`@`localhost` PROCEDURE `getArqueo`(IN idd INT)
+BEGIN
+	Select * from arqueo where id = idd;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -227,6 +292,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `getNumArqueo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`localuser`@`localhost` PROCEDURE `getNumArqueo`()
+BEGIN
+	SELECT id FROM factura ORDER BY id DESC LIMIT 1;
+    END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `getNumFactura` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -299,7 +383,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`localuser`@`localhost` PROCEDURE `grabarFactura`(IN vendedor_id VARCHAR(13), IN cliente_id VARCHAR(13),IN pago_forma INT,IN totall double)
 BEGIN
-	insert into factura values(DEFAULT,vendedor_id,DEFAULT,cliente_id,pago_forma,totall);
+	insert into factura values(DEFAULT,vendedor_id,DEFAULT,cliente_id,pago_forma,totall,DEFAULT);
 	SELECT LAST_INSERT_ID();
 END ;;
 DELIMITER ;
@@ -357,4 +441,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-12 16:43:47
+-- Dump completed on 2016-12-03 21:35:36
