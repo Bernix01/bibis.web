@@ -67,4 +67,9 @@ Public Class RealizarArqueo
     Protected Sub bnt_generar_arqueo_Click(sender As Object, e As ImageClickEventArgs) Handles bnt_generar_arqueo.Click
         grabarArqueo()
     End Sub
+
+    Protected Sub bnt_buscar_arqueo_Click(sender As Object, e As ImageClickEventArgs) Handles bnt_buscar_arqueo.Click
+        Dim url = "/RealizarArqueo" & "?ida=" & txt_reporte.Text
+        Response.Redirect(url)
+    End Sub
 End Class
