@@ -162,10 +162,14 @@ Public Class Facturacion
     End Sub
 
     Private Sub grabarFactura()
+        Dim p = crearPago()
+        If (p Is Nothing) Then
+            Return
+        End If
         Dim idfa As Int16 = CType(fdbc.SaveInvoice(lbl_num_factura.Text, GetCedula(Context.User.Identity), txt_ruc.Text, If(ddl_forma_pago.Text = "EFECTIVO", 1, If(ddl_forma_pago.Text = "CREDITO", 2, 3)), CType(txt_total_factura.Text, Double)), Int16)
         If (idfa <> -1) Then
             grabarItems(idfa)
-            If (grabarPago(idfa) <> -1) Then
+            If (grabarPago(idfa, p) <> -1) Then
                 alert("Factura guardada con éxito.", False)
                 Dim url = "/Facturacion" & "?idfa=" & idfa
                 Response.Redirect(url)
@@ -178,21 +182,21 @@ Public Class Facturacion
 
     End Sub
 
-    Private Function grabarPago(idfa As Short) As Int16
+    Private Function crearPago() As Pago
         Dim paago As Pago = New Pago()
         Select Case ddl_forma_pago.Text
             Case "EFECTIVO"
                 If (txt_efectivo_factura Is String.Empty) Then
-                    Return -1
+                    Return Nothing
                 End If
                 paago.efectivo = txt_efectivo_factura.Text
-                    paago.num_tarjeta = ""
+                paago.num_tarjeta = ""
                 paago.tipo_tarjeta = ""
                 paago.monto_tarjeta = 0
             Case "CREDITO"
 
                 If (String.IsNullOrEmpty(txt_tarjeta_valor.Text) Or String.IsNullOrEmpty(txt_codigo_tarjeta.Text)) Then
-                    Return -1
+                    Return Nothing
                 End If
                 paago.efectivo = 0
                 paago.num_tarjeta = txt_codigo_tarjeta.Text
@@ -201,7 +205,7 @@ Public Class Facturacion
             Case "EFECTIVO Y CREDITO"
 
                 If (String.IsNullOrEmpty(txt_tarjeta_valor.Text) Or String.IsNullOrEmpty(txt_codigo_tarjeta.Text) Or String.IsNullOrEmpty(txt_efectivo_factura.Text)) Then
-                    Return -1
+                    Return Nothing
                 End If
                 paago.efectivo = txt_efectivo_factura.Text
                 paago.num_tarjeta = txt_codigo_tarjeta.Text
@@ -213,10 +217,14 @@ Public Class Facturacion
 
         paago.total = paago.monto_tarjeta + paago.efectivo
         If (paago.total <> txt_total_factura.Text) Then
-            alert("El la cantidad de pago es insuficiente", True)
-            Return -1
+            alert("El la cantidad de pago es insuficiente o excede el total.", True)
+            Return Nothing
         End If
-        Dim id = fdbc.GrabarPago(idfa, paago)
+        Return paago
+    End Function
+
+    Private Function grabarPago(idfa As Int16, p As Pago)
+        Dim id = fdbc.GrabarPago(idfa, p)
         Return id
     End Function
 
