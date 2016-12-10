@@ -141,7 +141,7 @@ Public Class Facturacion
     End Sub
 
     Protected Sub btn_eliminar_factura_Click(sender As Object, e As ImageClickEventArgs) Handles btn_eliminar_factura.Click
-        fdbc.Anular(fac.id)
+        Dim a = fdbc.Anular(fac.id)
         Response.Redirect("/Facturacion?idfa=" & fac.id)
     End Sub
 
@@ -255,21 +255,24 @@ Public Class Facturacion
             lbl_num_factura.Text = fac.id
             lbl_emision.Text = String.Format("{0:dd/MM/yyyy}", fac.fecha)
             lbl_vencimiento.Text = String.Format("{0:dd/MM/yyyy}", fac.fecha.AddDays(95))
+            Dim ddl As Int16 = 1
             Select Case fac.forma_pago
                 Case 1
                     txt_efectivo_factura.Text = fac.pago.efectivo
                 Case 2
-                    ddl_nombre_tarjeta.Text = fac.pago.tipo_tarjeta
-                    txt_numero_factura.Text = fac.pago.num_tarjeta
+                    Integer.TryParse(fac.forma_pago, ddl)
+                    txt_codigo_tarjeta.Text = fac.pago.num_tarjeta
                     txt_tarjeta_valor.Text = fac.pago.monto_tarjeta
                 Case 3
-                    ddl_nombre_tarjeta.Text = fac.pago.tipo_tarjeta
+                    Integer.TryParse(fac.forma_pago, ddl)
                     txt_efectivo_factura.Text = fac.pago.efectivo
-                    txt_numero_factura.Text = fac.pago.num_tarjeta
+                    txt_codigo_tarjeta.Text = fac.pago.num_tarjeta
                     txt_tarjeta_valor.Text = fac.pago.monto_tarjeta
                 Case Else
                     Console.WriteLine("You typed something else")
+                    Return
             End Select
+            ddl_forma_pago.SelectedIndex = ddl - 1
             btn_eliminar_factura.Visible = True
             Return
         End If
@@ -301,6 +304,4 @@ Public Class Facturacion
         Dim url = "/Facturacion" & "?idfa=" & txt_numero_factura.Text
         Response.Redirect(url)
     End Sub
-
-
 End Class

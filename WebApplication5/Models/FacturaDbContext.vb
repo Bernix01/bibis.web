@@ -100,11 +100,13 @@ Public Class FacturaDbContext
         End Try
     End Function
 
-    Friend Sub Anular(idfa As Short)
+    Friend Function Anular(idfa As Int32)
         Try
-            Me.Database.SqlQuery(Of Factura)("anularFactura(@idfa)", New MySqlParameter("idfa", idfa))
+            Dim asd = Me.Database.SqlQuery(Of Int32)("anularFactura(@idfa)", New MySqlParameter("idfa", idfa)).ToList()
+            Return asd(0)
         Catch ex As Exception
-            ex.ToString()
+            Return ex.ToString()
         End Try
-    End Sub
+        Return -1
+    End Function
 End Class
