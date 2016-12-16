@@ -13,6 +13,12 @@ Public Class FacturaDbContext
         Return asd
     End Function
 
+    Friend Function getDelDia() As List(Of Factura)
+        Dim params As New MySqlParameter("ic", DateTime.Today.Year & "-" & DateTime.Today.Month & "-" & DateTime.Today.Day & " 00:00:00")
+        Dim asd = Me.Database.SqlQuery(Of Factura)("getDelDia(@ic)", params).ToList
+        Return asd
+    End Function
+
     'Obtiene un item dentro de la base dado in id
     Friend Function GetItem(iid As Integer) As Item
         Dim params As New MySqlParameter("ic", iid)

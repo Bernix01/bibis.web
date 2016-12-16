@@ -132,6 +132,7 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Facturacion">Facturación</a></li>
                         <li><a runat="server" href="~/RealizarArqueo">Arqueo</a></li>
+                        <li><a runat="server" href="~/FacturasDelDia">Facturas del día</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>

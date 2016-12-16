@@ -208,6 +208,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="FacturasDelDia.aspx" />
     <Content Include="images\agregar.png" />
     <Content Include="images\aitem.png" />
     <Content Include="images\Arqueo-de-caja.jpg" />
@@ -411,6 +412,13 @@
     <Compile Include="Credito.aspx.vb">
       <DependentUpon>Credito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacturasDelDia.aspx.designer.vb">
+      <DependentUpon>FacturasDelDia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FacturasDelDia.aspx.vb">
+      <DependentUpon>FacturasDelDia.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Models\ArqueoDbContext.vb" />
     <Compile Include="RealizarArqueo.aspx.designer.vb">
