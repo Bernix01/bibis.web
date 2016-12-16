@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: 181.198.214.34    Database: localdb
+-- Host: localhost    Database: localdb
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 
@@ -16,24 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `arqueo`
+-- Dumping data for table `arqueo`
 --
 
-DROP TABLE IF EXISTS `arqueo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `arqueo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idusuario` varchar(45) NOT NULL,
-  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `total_efectivo` double NOT NULL DEFAULT '0',
-  `total_mastercard` double NOT NULL DEFAULT '0',
-  `total_visa` double NOT NULL DEFAULT '0',
-  `total` double NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `idarqueo_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `arqueo` WRITE;
+/*!40000 ALTER TABLE `arqueo` DISABLE KEYS */;
+INSERT INTO `arqueo` VALUES (1,'1694072057099','2016-12-03 21:05:39',0,0,1340.52,1340.52);
+/*!40000 ALTER TABLE `arqueo` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -44,4 +34,4 @@ CREATE TABLE `arqueo` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-03 21:35:35
+-- Dump completed on 2016-12-15 23:46:50

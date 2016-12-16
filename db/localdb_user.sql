@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: 181.198.214.34    Database: localdb
+-- Host: localhost    Database: localdb
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 
@@ -16,23 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user`
+-- Dumping data for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
-  `username` varchar(16) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(32) NOT NULL,
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_id_UNIQUE` (`user_id`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -43,4 +33,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-03 21:35:36
+-- Dump completed on 2016-12-15 23:46:53

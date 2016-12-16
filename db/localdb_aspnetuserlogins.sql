@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: 181.198.214.34    Database: localdb
+-- Host: localhost    Database: localdb
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 
@@ -16,21 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aspnetuserlogins`
+-- Dumping data for table `aspnetuserlogins`
 --
 
-DROP TABLE IF EXISTS `aspnetuserlogins`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aspnetuserlogins` (
-  `LoginProvider` varchar(128) NOT NULL,
-  `ProviderKey` varchar(128) NOT NULL,
-  `UserId` varchar(128) NOT NULL,
-  PRIMARY KEY (`LoginProvider`,`ProviderKey`,`UserId`),
-  KEY `IX_UserId` (`UserId`) USING HASH,
-  CONSTRAINT `FK_AspNetUserLogins_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `aspnetuserlogins` WRITE;
+/*!40000 ALTER TABLE `aspnetuserlogins` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aspnetuserlogins` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -41,4 +33,4 @@ CREATE TABLE `aspnetuserlogins` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-03 21:35:35
+-- Dump completed on 2016-12-15 23:46:48

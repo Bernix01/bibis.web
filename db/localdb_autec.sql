@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: 181.198.214.34    Database: localdb
+-- Host: localhost    Database: localdb
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 
@@ -16,22 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `autec`
+-- Dumping data for table `autec`
 --
 
-DROP TABLE IF EXISTS `autec`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `autec` (
-  `idautec` int(11) NOT NULL,
-  `importe` double DEFAULT NULL,
-  `imp_iva` double DEFAULT NULL,
-  `imp_ice` double DEFAULT NULL,
-  `idcliente` int(11) NOT NULL,
-  PRIMARY KEY (`idautec`,`idcliente`),
-  KEY `idcliente_idx` (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `autec` WRITE;
+/*!40000 ALTER TABLE `autec` DISABLE KEYS */;
+/*!40000 ALTER TABLE `autec` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -42,4 +33,4 @@ CREATE TABLE `autec` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-03 21:35:36
+-- Dump completed on 2016-12-15 23:46:51

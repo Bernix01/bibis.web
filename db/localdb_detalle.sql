@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: 181.198.214.34    Database: localdb
+-- Host: localhost    Database: localdb
 -- ------------------------------------------------------
 -- Server version	5.7.16-log
 
@@ -16,25 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `detalle`
+-- Dumping data for table `detalle`
 --
 
-DROP TABLE IF EXISTS `detalle`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `detalle` (
-  `iddetalle` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL DEFAULT '1',
-  `importe_cant` double NOT NULL,
-  `iditem` int(11) DEFAULT NULL,
-  `idautec` int(11) NOT NULL,
-  PRIMARY KEY (`iddetalle`,`idautec`),
-  KEY `iditem_idx` (`iditem`),
-  KEY `idautec_idx` (`idautec`),
-  CONSTRAINT `idautec` FOREIGN KEY (`idautec`) REFERENCES `autec` (`idautec`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `iditem` FOREIGN KEY (`iditem`) REFERENCES `item` (`iditem`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `detalle` WRITE;
+/*!40000 ALTER TABLE `detalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `detalle` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -45,4 +33,4 @@ CREATE TABLE `detalle` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-03 21:35:35
+-- Dump completed on 2016-12-15 23:46:50
