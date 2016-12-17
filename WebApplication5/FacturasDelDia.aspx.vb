@@ -11,7 +11,7 @@
             Dim url = "/"
             Response.Redirect(url)
         End If
-        Label1.Text = If(its.Count() = 0, "No se encuentran facturas realizadas el día de hoy", "Hay " & its.Count() & "facturas del día de hoy.")
+        Label1.Text = If(its.Count() = 0, "No se encuentran facturas realizadas el día de hoy", "Hay " & its.Count() & " factura" & If(its.Count() > 1, "s", "") & " el día de hoy.")
         facs.DataSource = its
         facs.DataBind()
     End Sub
