@@ -16,12 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `item_x_factura`
+--
+
+DROP TABLE IF EXISTS `item_x_factura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `item_x_factura` (
+  `id_factura` int(11) DEFAULT NULL,
+  `id_item` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `descuento` int(11) DEFAULT NULL,
+  KEY `fk_item_idx` (`id_item`),
+  KEY `fk_factura_idx` (`id_factura`),
+  CONSTRAINT `fk_factura` FOREIGN KEY (`id_factura`) REFERENCES `factura` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_item` FOREIGN KEY (`id_item`) REFERENCES `item` (`iditem`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `item_x_factura`
 --
 
 LOCK TABLES `item_x_factura` WRITE;
 /*!40000 ALTER TABLE `item_x_factura` DISABLE KEYS */;
-INSERT INTO `item_x_factura` VALUES (1,23,12,12),(2,12,55,0),(3,12,43,12);
+INSERT INTO `item_x_factura` VALUES (1,23,12,12),(2,12,55,0),(3,12,43,12),(4,12,5,0),(4,34,12,5);
 /*!40000 ALTER TABLE `item_x_factura` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -34,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-15 23:46:49
+-- Dump completed on 2016-12-18  9:59:56

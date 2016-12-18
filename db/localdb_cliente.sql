@@ -16,6 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cliente`
+--
+
+DROP TABLE IF EXISTS `cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cliente` (
+  `idcliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `apellido` varchar(45) DEFAULT NULL,
+  `telefono` varchar(45) DEFAULT NULL,
+  `ruc` varchar(45) NOT NULL,
+  `direccion` varchar(60) NOT NULL,
+  `ciudad` int(11) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idcliente`,`ruc`),
+  UNIQUE KEY `idcliente_UNIQUE` (`idcliente`),
+  UNIQUE KEY `ruc_UNIQUE` (`ruc`),
+  KEY `ciudad_idx` (`ciudad`),
+  CONSTRAINT `ciudad` FOREIGN KEY (`ciudad`) REFERENCES `ciudad` (`idciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `cliente`
 --
 
@@ -34,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-15 23:46:52
+-- Dump completed on 2016-12-18  9:59:57

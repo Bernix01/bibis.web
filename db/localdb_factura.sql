@@ -16,12 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `factura`
+--
+
+DROP TABLE IF EXISTS `factura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `factura` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id_vendedor` varchar(13) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_cliente` varchar(13) NOT NULL,
+  `forma_pago` int(11) NOT NULL,
+  `total` double NOT NULL,
+  `estado` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `fk_cliente_idx` (`id_cliente`),
+  KEY `fk_vendedor_idx` (`id_vendedor`),
+  CONSTRAINT `fk_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`ruc`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_vendedor` FOREIGN KEY (`id_vendedor`) REFERENCES `aspnetusers` (`Cedula`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `factura`
 --
 
 LOCK TABLES `factura` WRITE;
 /*!40000 ALTER TABLE `factura` DISABLE KEYS */;
-INSERT INTO `factura` VALUES (1,'0992345044001','2016-11-23 19:33:00','1694072057099',1,896.62,0),(2,'0992345044001','2016-12-03 20:16:23','1694072057099',2,1340.52,0),(3,'0992345044001','2016-12-10 16:41:00','1694072057099',2,922.28,1);
+INSERT INTO `factura` VALUES (1,'0992345044001','2016-11-23 19:33:00','1694072057099',1,896.62,0),(2,'0992345044001','2016-12-03 20:16:23','1694072057099',2,1340.52,0),(3,'0992345044001','2016-12-10 16:41:00','1694072057099',2,922.28,1),(4,'0992345044001','2016-12-17 18:35:05','1694072057099',1,736.7,0);
 /*!40000 ALTER TABLE `factura` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -34,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-15 23:46:48
+-- Dump completed on 2016-12-18  9:59:56
