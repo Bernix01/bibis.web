@@ -14,6 +14,42 @@ Option Explicit On
 Partial Public Class FacturasDelDia
     
     '''<summary>
+    '''res control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents res As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''finicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents finicio As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''ffin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ffin As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''buscar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents buscar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''Label1 control.
     '''</summary>
     '''<remarks>

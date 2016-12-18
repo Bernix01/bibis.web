@@ -208,6 +208,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Content\calendar-brown.css" />
     <Content Include="FacturasDelDia.aspx" />
     <Content Include="images\agregar.png" />
     <Content Include="images\aitem.png" />
@@ -221,6 +222,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Credito.aspx" />
+    <Content Include="images\calendar.ico" />
     <Content Include="RealizarArqueo.aspx" />
     <Content Include="images\editar.png" />
     <Content Include="images\emcabezado.gif" />
@@ -240,8 +242,10 @@
     <Content Include="images\REPORTE.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\calendar-es.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.dynDateTime.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />

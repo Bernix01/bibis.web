@@ -26,6 +26,13 @@ Public Class FacturaDbContext
         Return asd(0)
     End Function
 
+    Friend Function getInRange(text1 As String, text2 As String) As List(Of Factura)
+        Dim params As New MySqlParameter("i", text1)
+        Dim params2 As New MySqlParameter("f", text2)
+        Dim asd = Me.Database.SqlQuery(Of Factura)("getFinRange(@i,@f)", params, params2).ToList
+        Return asd
+    End Function
+
     Friend Function SaveInvoice(numFactura As String, vendedor As String, cliente As String, formaPago As String, total As Double)
         Try
             Dim asd = Me.Database.SqlQuery(Of Int16)("grabarFactura(@nombre,@apellido,@direccion,@email)", New MySqlParameter("nombre", vendedor), New MySqlParameter("apellido", cliente), New MySqlParameter("direccion", formaPago), New MySqlParameter("email", total.ToString("F", CultureInfo.InvariantCulture))).ToArray()
