@@ -12,8 +12,9 @@
             facs.DataSource = its
             facs.DataBind()
 
-            Dim t = its.Sum(Function(item) item.total)
-            res.Text = "$" & t
+            Dim t = its.Sum(Function(item)
+                                Return If(item.estado = 0, item.total, 0)
+                                res.Text = "$" & t
         End If
     End Sub
 
@@ -27,7 +28,9 @@
         Label1.Text = If(its.Count() = 0, "No se encuentran facturas realizadas" & " entre " & i & " y " & f & " .", "Hay " & its.Count() & " factura" & If(its.Count() > 1, "s", "") & " entre " & i & " y " & f & " .")
         facs.DataSource = its
         facs.DataBind()
-        Dim t = its.Sum(Function(item) item.total)
+        Dim t = its.Sum(Function(item)
+                            Return If(item.estado = 0, item.total, 0)
+                        End Function)
         res.Text = "$" & t
     End Sub
 End Class
