@@ -14,7 +14,8 @@
 
             Dim t = its.Sum(Function(item)
                                 Return If(item.estado = 0, item.total, 0)
-                                res.Text = "$" & t
+                            End Function)
+            res.Text = "$" & t
         End If
     End Sub
 
