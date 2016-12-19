@@ -50,7 +50,7 @@
                         <%# DataBinder.Eval(Container.DataItem, "total")%>
                     </td>
                     <td>
-                        <%# If(DataBinder.Eval(Container.DataItem, "total") = 1, "ANULADA", "ACTIVA")%>
+                        <%# If(DataBinder.Eval(Container.DataItem, "estado") = 1, "ANULADA", "ACTIVA")%>
                     </td>
                     <td>
                         <a href="<%# "/Facturacion" & "?idfa=" & DataBinder.Eval(Container.DataItem, "id") %>">ver</a>
